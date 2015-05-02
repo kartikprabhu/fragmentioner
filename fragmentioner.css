@@ -1,0 +1,11 @@
+#fragmentioner-ui{
+	visibility:hidden;
+	position:absolute;
+	top:-100%;
+	background: #111;
+	padding:0.25em;
+}
+
+#fragmentioner-ui a{
+	color:#fafafa;
+}
