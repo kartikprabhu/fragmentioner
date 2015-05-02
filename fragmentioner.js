@@ -16,9 +16,9 @@
 		// check if some text was selected
 		if (text!=''){ 
 
-			ui.style.left = selected.left + offsets.left + (selected.width)/2;
+			ui.style.left = selected.left + offsets.left + (selected.width)/2 + "px";
 /*			MAGIC NUMBER 40 */
-			ui.style.top = selected.top + offsets.top - 40;
+			ui.style.top = selected.top + offsets.top - 40 + "px";
 			ui.getElementsByTagName("a")[0].setAttribute("href", text2frag(text));
 			ui.style.visibility = "visible";
 		}
