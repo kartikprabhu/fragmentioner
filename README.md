@@ -1,6 +1,7 @@
 # Fragmentioner
 
 UI for generating the [fragmention](http://indiewebcamp.com/fragmention) link to some selected text.
+Try it out here [fragmentioner demo](https://kartikprabhu.com/static/demo/fragmention.html).
 
 ## Basic Usage
 
