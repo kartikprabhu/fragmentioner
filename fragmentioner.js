@@ -81,6 +81,10 @@
 					width = rect.right - rect.left;
 	        }
 	    }
+
+		// hack to replace whitespaces with normal space to follow FF behaviour as of 2016-12-20; also compatible with fragmention.js
+		text = text.replace(/\s+/g, ' ');
+
 		return { text: text, node: node, left: left, top: top, width: width };
 	}
 
