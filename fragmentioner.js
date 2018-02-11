@@ -2,19 +2,20 @@
 
 (function(){
 	//mustard cutting
-	if (!window.getSelection || !encodeURI) {
+	if (!window.getSelection || !encodeURI || !('content' in document.createElement('template'))) {
         return;
 	}
 
-	// get the UI element
-	var ui = document.getElementById("fragmentioner-ui");
-	// show button on mouseup/touchend
-	document.body.addEventListener("mouseup", show_frag_btn, false);
-	document.body.addEventListener("touchend", show_frag_btn, false);
+	var
+	BUTTON_HTML = '<div id="fragmentioner-ui" hidden ><a href="">Link to text</a></div>';
+
+	var
+	BUTTON = document.createElement('template');
+	BUTTON.innerHTML = BUTTON_HTML;
 
 	/* function to reveal the UI */
 
-	function show_frag_btn(event) {
+	function show_frag_btn() {
 		var
 		selected = get_selection(),
 		text = selected.text,
@@ -24,15 +25,14 @@
 		// check if some text was selected
 		if (text != '') { 
 
+			ui.getElementsByTagName("a")[0].setAttribute("href", text2frag(text, node));
 			ui.style.left = selected.left + offsets.left + (selected.width)/2 + "px";
 /*			MAGIC NUMBER 40 */
 			ui.style.top = selected.top + offsets.top - 40 + "px";
-			ui.getElementsByTagName("a")[0].setAttribute("href", text2frag(text, node));
-			ui.style.visibility = "visible";
+			ui.hidden = false;
 		}
 		else {
-			ui.style.visibility = "hidden";
-			ui.style.top = "-100%";
+			ui.hidden = true;
 		}
 	}
 
@@ -102,4 +102,11 @@
 		}
 		return { left: left, top: top };
 	}
+
+	var ui = BUTTON.content.cloneNode(true).firstElementChild;
+
+	document.body.appendChild(ui);
+
+	document.body.addEventListener("mouseup", show_frag_btn, false);
+	document.body.addEventListener("touchend", show_frag_btn, false);
 })();
