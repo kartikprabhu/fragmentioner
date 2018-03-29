@@ -1,7 +1,11 @@
 # Fragmentioner
 
 UI for generating the [fragmention](http://indiewebcamp.com/fragmention) link to some selected text.
+
 Try it out here [fragmentioner demo](https://kartikprabhu.com/static/demo/fragmention.html).
+
+## Note
+Fragmentioner only generates the UI for the link. To make fragmentioned links work on your page you will need to use [fragmention.js](https://github.com/chapmanu/fragmentions).
 
 ## Basic Usage
 
